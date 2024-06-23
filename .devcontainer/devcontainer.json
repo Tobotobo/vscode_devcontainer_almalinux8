@@ -1,0 +1,7 @@
+{
+    "name": "AlmaLinux8",
+    "dockerComposeFile": "../compose.yml",
+    "service": "dev",
+    "remoteUser": "user",
+    "workspaceFolder": "/workspace"
+}
