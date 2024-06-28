@@ -2,6 +2,12 @@ services:
   dev:
     build:
       context: ./docker/dev
+      dockerfile: Dockerfile
+      args:
+        USER_NAME: user
+        USER_UID: 1000
+        USER_GID: 1000
+    user: 1000:1000
     volumes:
       - .:/workspace
     working_dir: /workspace

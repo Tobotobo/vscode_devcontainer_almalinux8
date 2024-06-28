@@ -1,13 +1,14 @@
 ARG VARIANT="8.10-20240528"
 FROM almalinux:${VARIANT}
 
-ARG USER_NAME="user"
-ARG USER_UID="1000"
-ARG USER_GID="1000"
+ARG USER_NAME
+ARG USER_UID
+ARG USER_GID
 
 RUN dnf update -y \
     && dnf install -y \
-        sudo
+        sudo \
+        git
 
 RUN groupadd --gid ${USER_GID} ${USER_NAME} \
     && useradd \

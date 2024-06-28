@@ -3,5 +3,6 @@
     "dockerComposeFile": "../compose.yml",
     "service": "dev",
     "remoteUser": "user",
+    "updateRemoteUserUID": false,
     "workspaceFolder": "/workspace"
 }
