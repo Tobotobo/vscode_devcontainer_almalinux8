@@ -4,9 +4,10 @@
 * VSCode の DevContainer を Docker Compose で構築する
 * DevContainer 用のイメージではなく、素の AlmaLinux8 から自前で構築する
 * 一般ユーザーを追加し、sudo が使えるようにする
+* Remote-SSH からも使えるようにする
 
 ## TODO
-* DevContainer を利用せず Remote-SSH でも開発できるようにする
+* SSH のキーの永続化
 
 ## 参照
 * Development Containers Images  
