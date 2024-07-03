@@ -13,9 +13,11 @@ services:
       - 22222:22
     volumes:
       - ssh_host_keys:/etc/ssh/ssh_host_keys
+      - home:/home
       - .:/workspace
     working_dir: /workspace
     tty: true
 
 volumes:
   ssh_host_keys:
+  home:
