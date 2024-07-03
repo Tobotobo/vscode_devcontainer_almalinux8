@@ -33,6 +33,8 @@ RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["sudo", "/entrypoint.sh"]
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+RUN mkdir -p /var/run/supervisor /var/log/supervisor \
+    && chmod -R 755 /var/run/supervisor /var/log/supervisor
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 
 EXPOSE 22
