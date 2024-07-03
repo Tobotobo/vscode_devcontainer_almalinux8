@@ -8,6 +8,16 @@
 set -eEuo pipefail
 shopt -s inherit_errexit # '-e'オプションをサブシェルや関数内にも適用する
 
-ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
-ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N ''
-ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N ''
+keys_dir=/etc/ssh/ssh_host_keys
+
+generate_ssh_host_key() {
+    key_type=$1
+    key_file="${keys_dir}/ssh_host_${key_type}_key"
+    if [ ! -f "${key_file}" ]; then
+        ssh-keygen -t "${key_type}" -f "${key_file}" -N ''
+    fi
+}
+
+generate_ssh_host_key rsa
+generate_ssh_host_key ecdsa
+generate_ssh_host_key ed25519

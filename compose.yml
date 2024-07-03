@@ -12,6 +12,10 @@ services:
     ports:
       - 22222:22
     volumes:
+      - ssh_host_keys:/etc/ssh/ssh_host_keys
       - .:/workspace
     working_dir: /workspace
     tty: true
+
+volumes:
+  ssh_host_keys:

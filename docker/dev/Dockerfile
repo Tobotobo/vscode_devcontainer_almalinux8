@@ -37,6 +37,9 @@ RUN mkdir -p /var/run/supervisor /var/log/supervisor \
     && chmod -R 755 /var/run/supervisor /var/log/supervisor
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 
+RUN mkdir -p /etc/ssh/ssh_host_keys \
+    && sed -i 's|HostKey /etc/ssh/|HostKey /etc/ssh/ssh_host_keys/|' /etc/ssh/sshd_config
+
 EXPOSE 22
 USER ${USER_NAME}
 WORKDIR /home/${USER_NAME}
