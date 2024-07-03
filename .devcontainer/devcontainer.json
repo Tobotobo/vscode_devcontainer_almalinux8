@@ -2,7 +2,7 @@
     "name": "AlmaLinux8",
     "dockerComposeFile": "../compose.yml",
     "service": "dev",
-    "remoteUser": "user",
+    "remoteUser": "${localEnv:USER_NAME}",
     "updateRemoteUserUID": false,
     "workspaceFolder": "/workspace"
 }

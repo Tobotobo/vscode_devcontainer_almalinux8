@@ -4,13 +4,13 @@ services:
       context: ./docker/dev
       dockerfile: Dockerfile
       args:
-        USER_NAME: user
-        USER_PASSWORD: pass
-        USER_UID: 1000
-        USER_GID: 1000
-    user: 1000:1000
+        USER_NAME: ${USER_NAME}
+        USER_PASSWORD: ${USER_PASSWORD}
+        USER_UID: ${USER_UID}
+        USER_GID: ${USER_GID}
+    user: ${USER_UID}:${USER_GID}
     ports:
-      - 22222:22
+      - ${SSH_PORT}:22
     volumes:
       - ssh_host_keys:/etc/ssh/ssh_host_keys
       - home:/home
