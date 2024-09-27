@@ -6,9 +6,6 @@
 * 一般ユーザーを追加し、sudo が使えるようにする
 * Remote-SSH からも使えるようにする
 
-## TODO
-* SSH のキーの永続化
-
 ## 参照
 * Development Containers Images  
   https://github.com/devcontainers/images  

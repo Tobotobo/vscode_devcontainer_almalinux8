@@ -1,4 +1,5 @@
-ARG VARIANT="8.10-20240528"
+# https://hub.docker.com/_/almalinux
+ARG VARIANT="8.10-20240923"
 FROM almalinux:${VARIANT}
 
 ARG USER_NAME
@@ -29,7 +30,8 @@ RUN groupadd --gid ${USER_GID} ${USER_NAME} \
 
 COPY entrypoint.d /entrypoint.d
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+RUN chmod +x /entrypoint.sh \
+    && chmod +x -R /entrypoint.d
 ENTRYPOINT ["sudo", "/entrypoint.sh"]
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
